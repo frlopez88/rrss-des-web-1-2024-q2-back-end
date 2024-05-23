@@ -1,0 +1,9 @@
+Objetivo Global:
+
+1) Tener un Back-End para una RRSS estilo Instagram
+
+22/05/2024
+
+1) metodo de creacion de usuarios 
+2) metodo de autenticacion 
+
