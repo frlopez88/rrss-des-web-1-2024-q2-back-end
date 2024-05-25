@@ -45,7 +45,7 @@ const auth = async (req, res) => {
         const result = await db.query(sql, [nombre_usuario, contrasena]);
 
         if (result.length === 0) {
-            res.status(404).json({ mensaje: "Credenciales Invalidas" });
+            res.status(400).json({ mensaje: "Credenciales Invalidas" });
         } else {
             res.status(200).json({ mensjase: "Autenticaion Exitosa", info_user: result })
         }
