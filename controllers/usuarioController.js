@@ -1,4 +1,5 @@
 import { db } from "../db/cn.js";
+import jwt from 'jsonwebtoken'
 
 const creacionUsuario = async (req, res) => {
 
@@ -47,7 +48,12 @@ const auth = async (req, res) => {
         if (result.length === 0) {
             res.status(400).json({ mensaje: "Credenciales Invalidas" });
         } else {
-            res.status(200).json({ mensjase: "Autenticaion Exitosa", info_user: result })
+            
+            const payload = result[0]; 
+
+            const token = jwt.sign ( payload, 'secret', { expiresIn: '1h' }  );
+
+            res.status(200).json({ mensjase: "Autenticaion Exitosa", info_user: token })
         }
     } catch (err) {
         res.status(500).json({ mensaje: "Error de Autenticacion", err: err.message })

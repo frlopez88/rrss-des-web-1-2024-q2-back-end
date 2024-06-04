@@ -20,4 +20,4 @@ create table tbl_publicaciones (
     activo bool default true
 );
 
-select * from tbl_publicaciones
+select * from tbl_usuario
