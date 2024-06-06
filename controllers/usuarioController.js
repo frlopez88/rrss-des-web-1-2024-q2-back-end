@@ -53,7 +53,7 @@ const auth = async (req, res) => {
 
             const token = jwt.sign ( payload, 'secret', { expiresIn: '1h' }  );
 
-            res.status(200).json({ mensjase: "Autenticaion Exitosa", info_user: token })
+            res.status(200).json({ mensaje: "Autenticaion Exitosa", info_user: token })
         }
     } catch (err) {
         res.status(500).json({ mensaje: "Error de Autenticacion", err: err.message })

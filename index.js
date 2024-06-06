@@ -12,7 +12,6 @@ app.use(cors());
 
 const verificarToken = (req, res, next) => {
 
-    //console.log(req);
     const symbols = Object.getOwnPropertySymbols(req);
     // Encontrar el símbolo específico [Symbol(kHeaders)]
     const kHeadersSymbol = symbols.find(sym => sym.toString() === 'Symbol(kHeaders)');
