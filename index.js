@@ -26,6 +26,7 @@ const verificarToken = (req, res, next) => {
 
             try {
                 const tokenDecode = jwt.verify(token, 'secret')
+                req.user = tokenDecode;
                 next();
             } catch (err) {
 
@@ -37,12 +38,6 @@ const verificarToken = (req, res, next) => {
         }
 
     } 
-
-
-
-
-
-
 
 };
 

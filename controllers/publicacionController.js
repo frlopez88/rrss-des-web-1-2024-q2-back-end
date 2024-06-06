@@ -1,8 +1,11 @@
 import { db } from "../db/cn.js";
 
-const creacionPublicacion = async (req, res, next) => {
+const creacionPublicacion = async (req, res) => {
 
-    const { descripcion, nombre_usuario } = req.body;
+    console.log(req.body);
+    const { descripcion } = req.body;
+    const user = req.user;
+    const nombre_usuario = user.nombre_usuario;
     const { mimetype, originalname, buffer } = req.file;
 
     const sql = `insert into tbl_publicaciones 
