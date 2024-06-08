@@ -46,9 +46,33 @@ const getUsuarioPublicaciones = (req, res) => {
 
 };
 
+const getPublicacio2Usuarios = async (req, res)=>{
+
+
+    const {usuario_1, usuario_2} = req.params;
+
+    const params= [usuario_1, usuario_2];
+
+    const sql  = `select id_publicacion, 
+                         descripcion, 
+                         nombre_usuario
+                         from tbl_publicaciones 
+                  where activo = true
+                  and nombre_usuario in ($1, $2)
+                  order by fecha_publicacion desc`;
+
+
+    const result = await db.query(sql, params);
+
+    res.json(result);
+
+
+}
+
 export {
     creacionPublicacion,
     getPublicaciones,
-    getUsuarioPublicaciones
+    getUsuarioPublicaciones, 
+    getPublicacio2Usuarios
 }
 

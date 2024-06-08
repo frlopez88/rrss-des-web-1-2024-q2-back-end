@@ -3,7 +3,8 @@ const publicacion = express();
 import {
     creacionPublicacion,
     getPublicaciones,
-    getUsuarioPublicaciones
+    getUsuarioPublicaciones, 
+    getPublicacio2Usuarios
 } from '../controllers/publicacionController.js';
 import multer from 'multer';
 //middleware 
@@ -17,5 +18,7 @@ publicacion.post('', upload.single('imagen') , creacionPublicacion);
 publicacion.get('', getPublicaciones);
 
 publicacion.get('/:nombre_usuario', getUsuarioPublicaciones);
+
+publicacion.get('/:usuario_1/:usuario_2', getPublicacio2Usuarios);
 
 export { publicacion }
